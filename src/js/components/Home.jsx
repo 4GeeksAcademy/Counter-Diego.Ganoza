@@ -2,25 +2,19 @@ import React from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+import { NumberGenerator } from "./NumberGenerator";
+
 
 //create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-            
+const Home = ({ counter, handleChange }) => {
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+
+	return (
+		<div className="container">
+			<div className="row">
+				<NumberGenerator counter={counter}></NumberGenerator>
+			</div>
+			<input type="number" class="form-control mt-5 border border-success" onKeyDown={handleChange} aria-label="Amount (to the nearest dollar)" style={{ width: "10%" }}></input>
 		</div>
 	);
 };

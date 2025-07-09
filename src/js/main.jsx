@@ -11,8 +11,22 @@ import '../styles/index.css'
 // components
 import Home from './components/Home';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+const reactRender = ReactDOM.createRoot(document.getElementById('root'))
+
+let counter = 0;
+
+const handleChange = (event) => {
+  if (event.key === "Enter") {
+    counter = event.target.value;
+  }
+}
+
+setInterval(() => {
+  reactRender.render(
+    <React.StrictMode>
+      <Home counter={counter}
+        handleChange={handleChange} />
+    </React.StrictMode>
+  )
+  counter++
+}, 1000);
